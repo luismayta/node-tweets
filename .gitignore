@@ -1,0 +1,8 @@
+node_modules
+.vagrant
+/nbproject/private/
+/nbproject
+local.js
+/nbproject
+*.log
+*.orig
