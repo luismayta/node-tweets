@@ -1,7 +1,7 @@
 {
     "name": "tweet-for-god",
     "description": "tweet for god",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "private": true,
     "author": "Luis Alberto Mayta",
     "engines": {
