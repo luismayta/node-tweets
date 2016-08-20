@@ -1,0 +1,6 @@
+***REMOVED***
+
+- hosts: test
+  remote_user: root
+  roles:
+    - ansible-role-python
