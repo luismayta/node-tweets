@@ -1,5 +1,4 @@
 # ~/.tmuxinator/nodejs-tweet.yml
-
 name: nodejs_tweets
 root: <%= ENV["PROJECTS"] %>/nodejs/nodejs_tweets
 tmux_options: -2
@@ -8,6 +7,8 @@ tmux_options: -2
 
 # Runs before everything. Use it to start daemons etc.
 # pre: sudo /etc/rc.d/mysqld start
+pre:
+    - make environment
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
@@ -29,27 +30,39 @@ tmux_options: -2
 
 windows:
   - editor:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - editor:
-            - pyenv activate nodejs_tweets
+            - pyenv activate nodejs-tweets
+            - gvm pkgset use nodejs-tweets
             - <%= ENV["EDITOR"] %>
-        - vagrant:
-            - pyenv activate nodejs_tweets
-        - docker:
-            - pyenv activate nodejs_tweets
-  - nodejs:
+        - pwd:
+            - pyenv activate nodejs-tweets
+            - gvm pkgset use nodejs-tweets
+        - pwd:
+            - pyenv activate nodejs-tweets
+            - gvm pkgset use nodejs-tweets
+  - python:
       layout: main-vertical
       panes:
-        - nodejs:
-            - pyenv activate nodejs_tweets
+        - python:
+            - pyenv activate nodejs-tweets
+            - gvm pkgset use nodejs-tweets
   - databases:
       layout: main-vertical
       panes:
-        - mongodb:
-            - pyenv activate nodejs_tweets
+        - ls:
+            - pyenv activate nodejs-tweets
+            - gvm pkgset use nodejs-tweets
+        - ls:
+            - pyenv activate nodejs-tweets
+            - gvm pkgset use nodejs-tweets
   - docker:
       layout: main-vertical
       panes:
-        - mongodb:
-            - pyenv activate nodejs_tweets
+        - ls:
+            - pyenv activate nodejs-tweets
+            - gvm pkgset use nodejs-tweets
+        - ls:
+            - pyenv activate nodejs-tweets
+            - gvm pkgset use nodejs-tweets
