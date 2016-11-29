@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 # shellcheck source=script/bootstrap.sh
+# shellcheck disable=SC1091
 [ -r "script/bootstrap.sh" ] && source "script/bootstrap.sh"
 
-ansible-galaxy install -r requirements.yml \
-               --roles-path "${PROVISION_DIR}"/roles/contrib --force
+pre-commit install -f --install-hooks
+pre-commit run --all-files
