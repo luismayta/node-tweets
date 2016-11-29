@@ -1,6 +1,6 @@
-# ~/.tmuxinator/nodejs-tweet.yml
-name: nodejs_tweets
-root: <%= ENV["PROJECTS"] %>/nodejs/nodejs_tweets
+# ~/.tmuxinator/nodejs-example-tweets.yml
+name: nodejs-example-tweets
+root: <%= ENV["PROJECTS"] %>/nodejs/nodejs-example-tweets
 tmux_options: -2
 # Optional tmux socket
 # socket_name: foo
@@ -26,43 +26,43 @@ pre:
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t nodejs_tweets
+# post: tmux -CC attach -t nodejs-example-tweets
 
 windows:
   - editor:
       layout: even-horizontal
       panes:
         - editor:
-            - pyenv activate nodejs-tweets
-            - gvm pkgset use nodejs-tweets
+            - pyenv activate nodejs-example-tweets
+            - gvm pkgset use nodejs-example-tweets
             - <%= ENV["EDITOR"] %>
         - pwd:
-            - pyenv activate nodejs-tweets
-            - gvm pkgset use nodejs-tweets
+            - pyenv activate nodejs-example-tweets
+            - gvm pkgset use nodejs-example-tweets
         - pwd:
-            - pyenv activate nodejs-tweets
-            - gvm pkgset use nodejs-tweets
+            - pyenv activate nodejs-example-tweets
+            - gvm pkgset use nodejs-example-tweets
   - python:
       layout: main-vertical
       panes:
         - python:
-            - pyenv activate nodejs-tweets
-            - gvm pkgset use nodejs-tweets
+            - pyenv activate nodejs-example-tweets
+            - gvm pkgset use nodejs-example-tweets
   - databases:
       layout: main-vertical
       panes:
         - ls:
-            - pyenv activate nodejs-tweets
-            - gvm pkgset use nodejs-tweets
+            - pyenv activate nodejs-example-tweets
+            - gvm pkgset use nodejs-example-tweets
         - ls:
-            - pyenv activate nodejs-tweets
-            - gvm pkgset use nodejs-tweets
+            - pyenv activate nodejs-example-tweets
+            - gvm pkgset use nodejs-example-tweets
   - docker:
       layout: main-vertical
       panes:
         - ls:
-            - pyenv activate nodejs-tweets
-            - gvm pkgset use nodejs-tweets
+            - pyenv activate nodejs-example-tweets
+            - gvm pkgset use nodejs-example-tweets
         - ls:
-            - pyenv activate nodejs-tweets
-            - gvm pkgset use nodejs-tweets
+            - pyenv activate nodejs-example-tweets
+            - gvm pkgset use nodejs-example-tweets

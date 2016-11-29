@@ -1,4 +1,4 @@
-# Makefile for nodejs-tweets.
+# Makefile for nodejs-example-tweets.
 
 # Configuration.
 SHELL = /bin/bash

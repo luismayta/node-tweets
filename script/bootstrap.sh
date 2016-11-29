@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # -*- coding: utf-8 -*-
 
-export PROJECT_NAME=python-example-graphql
+export PROJECT_NAME=nodejs-example-tweets
 
 export PYTHON_VERSION=2.7.9
 export PYENV_NAME="${PROJECT_NAME}"
