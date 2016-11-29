@@ -1,4 +1,4 @@
-***REMOVED***
+---
 - name: Installs dependences
   when: ansible_os_family == 'Debian'
   sudo: yes

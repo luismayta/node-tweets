@@ -1,7 +1,7 @@
-***REMOVED***
+---
 # vars file for python
 
-***REMOVED***
+python_version: 2.7.9
 python_setuptools_version: 5.7
 
 # Variables Private
@@ -40,10 +40,10 @@ _python_downloads:
     dest: "{{ _setuptools_path_version }}.tar.gz"
 
 _python_unpacks:
-  - ***REMOVED*** "{{ _python_path_version }}.tgz"
+  - file: "{{ _python_path_version }}.tgz"
     dest: "{{ _python_path_tmp }}"
     copy: no
-  - ***REMOVED*** "{{ _setuptools_path_version }}.tar.gz"
+  - file: "{{ _setuptools_path_version }}.tar.gz"
     dest: "{{ _python_path_tmp }}"
     copy: no
 
@@ -69,4 +69,4 @@ _setuptools_execute:
 # Common Dependences
 _python_create_path_dependences:
   - path: "{{ _python_path_tmp }}"
-***REMOVED***
+    state: "directory"

@@ -1,4 +1,4 @@
-***REMOVED***
+---
 
 - name: Collect static files
   sudo_user: "{{ user }}"

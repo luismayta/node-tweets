@@ -1,4 +1,4 @@
-***REMOVED***
+---
 - name: restart haproxy
   sudo: yes
   service: name=haproxy state=restarted

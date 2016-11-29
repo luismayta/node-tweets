@@ -27,7 +27,7 @@ None.
 *Inside `vars/main.yaml`*:
 
 ```yml
-    ***REMOVED***
+    python_version: 2.7.9
 ```
 
 ## License

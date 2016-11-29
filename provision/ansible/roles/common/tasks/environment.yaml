@@ -1,7 +1,7 @@
-***REMOVED***
+---
 
 # - name: Set environment variables
-#   linein***REMOVED***
+#   lineinfile:
 #     dest: /etc/environment
 #     line: "{{ item.key }}=\"{{ item.value }}\""
 #   notify: Export environment variables

@@ -1,4 +1,4 @@
-***REMOVED***
+---
 
 - name: copy templates uwsgi
   template:

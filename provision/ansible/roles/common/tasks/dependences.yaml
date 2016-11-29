@@ -1,4 +1,4 @@
-***REMOVED***
+---
 
 - name: Update package repositories
   sudo: yes

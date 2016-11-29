@@ -1,4 +1,4 @@
-***REMOVED***
+---
 
 - name: setup haproxy configuration
   sudo: yes

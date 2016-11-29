@@ -1,7 +1,7 @@
-***REMOVED***
+---
 
 - name: create files
-  ***REMOVED***
+  file:
     path: "{{ item.path }}"
     state: "{{ item.state }}"
   with_items: deployment.create_files
