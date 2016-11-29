@@ -1,13 +1,13 @@
 # The sensible data keys are:
 
 # all
-#***REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED***-
+#-------------------------------------------------------------------------------
 supervisord_http_user: admin
 supervisord_http_pass: xxxxx
 
 
 # dbservers
-#***REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED******REMOVED***-
+#-------------------------------------------------------------------------------
 postgresql_users:
   - name: "postgres"
     pass: "xxxx"

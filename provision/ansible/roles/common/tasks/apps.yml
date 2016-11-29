@@ -1,8 +1,8 @@
-***REMOVED***
+---
 
 - name: Update apps
   sudo_user: "{{ user }}"
-  ***REMOVED***
+  git:
     repo: "{{ item.value.repo }}"
     dest: "{{ item.value.location }}"
     version: "{{ item.value.version }}"

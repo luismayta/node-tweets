@@ -1,4 +1,4 @@
-***REMOVED***
+---
 
 - name: Creates cronjob
   cron: minute="{{ item.value.minute }}"

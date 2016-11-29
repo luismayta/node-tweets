@@ -1,4 +1,4 @@
-***REMOVED***
+---
 
 - name: setup nginx configuration
   sudo: yes

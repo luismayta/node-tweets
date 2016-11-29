@@ -1,4 +1,4 @@
-***REMOVED***
+---
 
 - name: make migrations
   sudo_user: "{{ user }}"

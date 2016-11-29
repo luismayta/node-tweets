@@ -26,18 +26,18 @@
     -   id: debug-statements
     -   id: requirements-txt-fixer
     -   id: name-tests-test
--   repo: ***REMOVED***//github.com/pre-commit/mirrors-pylint
+-   repo: git://github.com/pre-commit/mirrors-pylint
     sha: v1.6.4
     hooks:
     -   id: pylint
         args:
         - --rcfile=.pylintrc
--   repo: ***REMOVED***//github.com/pre-commit/mirrors-scss-lint
+-   repo: git://github.com/pre-commit/mirrors-scss-lint
     sha: v0.50.2
     hooks:
     -   id: scss-lint
         files: \.(scss)$
-# -   repo: ***REMOVED***//github.com/FalconSocial/pre-commit-mirrors-pep257
+# -   repo: git://github.com/FalconSocial/pre-commit-mirrors-pep257
 #     sha: v0.3.2
 #     hooks:
 #     -   id: pep257
@@ -48,13 +48,13 @@
     hooks:
     -   id: validate_config
     -   id: validate_manifest
--   repo: ***REMOVED***//github.com/FalconSocial/pre-commit-python-sorter
+-   repo: git://github.com/FalconSocial/pre-commit-python-sorter
     sha: 1.0.4
     hooks:
     -   id: python-import-sorter
         args:
         - --silent-overwrite
--   repo: ***REMOVED***//github.com/detailyang/pre-commit-shell
+-   repo: git://github.com/detailyang/pre-commit-shell
     sha: 1fdffa0434cde2b87f19ad258201d3e81481af5f
     hooks:
     -   id: shell-lint

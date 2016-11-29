@@ -1,4 +1,4 @@
-***REMOVED***
+---
 
 - include: statics_front.yaml
   when: "user == 'vagrant'"

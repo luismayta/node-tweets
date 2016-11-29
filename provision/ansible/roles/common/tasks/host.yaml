@@ -1,4 +1,4 @@
-***REMOVED***
+---
 
 # - name: Set motd
 #   template:
@@ -21,7 +21,7 @@
 #     - hostname
 
 # - name: Set hostname to hosts
-#   linein***REMOVED***
+#   lineinfile:
 #     dest: /etc/hosts
 #     line: "127.0.0.1 {{ machine_hostname }}"
 #     owner: root

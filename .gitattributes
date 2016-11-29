@@ -69,7 +69,7 @@ CHANGELOG.md merge=union
 # Server config
 .htaccess text eol=lf
 
-***REMOVED*** config
+# Git config
 .gitattributes text eol=lf
 .gitignore text eol=lf
 

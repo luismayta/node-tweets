@@ -1,4 +1,4 @@
-***REMOVED***
+---
 
 - name: validation with python 2.7
   stat:
@@ -23,7 +23,7 @@
 
 - name: Create Link Symbolic
   sudo: yes
-  ***REMOVED*** "src={{ item.src }}
+  file: "src={{ item.src }}
         dest={{ item.dest }}
         state={{ item.state }}"
   with_items: _python_create_links

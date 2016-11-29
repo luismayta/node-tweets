@@ -1,4 +1,4 @@
-***REMOVED***
+---
 
 - name: Check virtualenv created
   stat:

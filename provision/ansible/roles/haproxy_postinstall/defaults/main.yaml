@@ -1,4 +1,4 @@
-***REMOVED***
+---
 # vars file for haproxy
 
 haproxy_maxconn: 2000

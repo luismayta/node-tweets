@@ -1,4 +1,4 @@
-***REMOVED***
+---
 
 - name: copy template
   sudo: yes

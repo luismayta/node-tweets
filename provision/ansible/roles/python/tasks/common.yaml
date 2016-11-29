@@ -1,8 +1,8 @@
-***REMOVED***
+---
 
 - name: Create path Dependences
   sudo: yes
-  ***REMOVED*** "path={{ item.path }} state={{ item.state }}"
+  file: "path={{ item.path }} state={{ item.state }}"
   with_items: _python_create_path_dependences
 
 - name: Downloads Dependences

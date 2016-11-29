@@ -1,4 +1,4 @@
-***REMOVED***
+---
 # vars file for uwsgi
 
 uwsgi:
@@ -11,7 +11,7 @@ uwsgi:
   threads: 5
   enable_threads: True
   http: ":3097"
-  pid***REMOVED*** "/var/run/uwsgi/uwsgi.pid"
+  pidfile: "/var/run/uwsgi/uwsgi.pid"
   # touch_reload: "/path/touch/reload"
   daemonize: "/var/logs/uwsgi/uwsgi.log"
   # harakiri: 30

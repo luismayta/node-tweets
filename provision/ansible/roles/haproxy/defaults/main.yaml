@@ -1,4 +1,4 @@
-***REMOVED***
+---
 # vars file for haproxy
 haproxy_repos:
   - ppa:vbernat/haproxy-1.5
