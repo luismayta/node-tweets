@@ -10,8 +10,6 @@ SCRIPT_DIR = $(ROOT_DIR)/script
 WGET = wget
 
 # Bin scripts
-ANSIBLE_PROVISION = $(shell) $(SCRIPT_DIR)/provision.sh
-ANSIBLE_DEPLOY = $(shell) $(SCRIPT_DIR)/deploy.sh
 CLEAN = $(shell) $(SCRIPT_DIR)/clean.sh
 GVM = $(shell) $(SCRIPT_DIR)/gvm.sh
 GRIP = $(shell) $(SCRIPT_DIR)/grip.sh
@@ -25,21 +23,8 @@ SYNC = $(shell) $(SCRIPT_DIR)/sync.sh
 WATCH = $(shell) $(SCRIPT_DIR)/watch.sh
 
 
-ansible_provision:
-	$(ANSIBLE_PROVISION)
-
-
-ansible_deploy:
-	$(ANSIBLE_DEPLOY)
-
-
 clean:
 	$(CLEAN)
-
-
-deploy:
-	$(ANSIBLE_PROVISION)
-	$(ANSIBLE_DEPLOY)
 
 
 distclean: clean
@@ -60,10 +45,6 @@ grip:
 
 install:
 	$(INSTALL)
-
-
-roles:
-	$(ROLES_ANSIBLE)
 
 
 maintainer-clean: distclean
