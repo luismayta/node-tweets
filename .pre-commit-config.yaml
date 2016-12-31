@@ -37,14 +37,8 @@
     hooks:
     -   id: scss-lint
         files: \.(scss)$
-# -   repo: git://github.com/FalconSocial/pre-commit-mirrors-pep257
-#     sha: v0.3.2
-#     hooks:
-#     -   id: pep257
-#         args:
-#         - --ignore=migrations
 -   repo: git@github.com:pre-commit/pre-commit
-    sha: v0.9.3
+    sha: v0.9.4
     hooks:
     -   id: validate_config
     -   id: validate_manifest
