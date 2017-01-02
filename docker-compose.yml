@@ -5,7 +5,7 @@ services:
     build: .
     image: mhart/alpine-node
     volumes:
-      - ./:/myapp
+      - ./:/app
     ports:
       - "3000:3000"
     links:
