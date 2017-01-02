@@ -1,0 +1,25 @@
+version: '2'
+services:
+  web:
+    restart: always
+    build: .
+    image: mhart/alpine-node
+    volumes:
+      - ./:/myapp
+    ports:
+      - "3000:3000"
+    links:
+      - mongo
+    environment:
+      PORT: 3000
+  mongo:
+    restart: always
+    image: mvertes/alpine-mongo
+    ports:
+      - "27017:27017"
+    volumes_from:
+      - mongodata
+  mongodata:
+    image: tianon/true
+    volumes:
+      - /data/db
