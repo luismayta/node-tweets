@@ -1,7 +1,7 @@
 {
     "name": "tweet-for-nodejs",
     "description": "tweet for nodejs",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "private": true,
     "author": "Luis Alberto Mayta",
     "engines": {
