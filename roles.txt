@@ -1,2 +1,0 @@
-luismayta.nodejs
-luismayta.authorization

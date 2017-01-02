@@ -1,5 +1,4 @@
-# Makefile.
-# See INSTALL for details.
+# Makefile for nodejs-example-tweets.
 
 # Configuration.
 SHELL = /bin/bash
@@ -9,53 +8,23 @@ DATA_DIR = $(ROOT_DIR)/var
 SCRIPT_DIR = $(ROOT_DIR)/script
 
 WGET = wget
-PYTHON = $(VIRTUALENV_DIR)/bin/python
 
 # Bin scripts
-ANSIBLE_PROVISION= $(shell) $(SCRIPT_DIR)/provision.sh
-ANSIBLE_DEPLOY= $(shell) $(SCRIPT_DIR)/deploy.sh
-CREATE_DATABASE = $(shell) $(SCRIPT_DIR)/create_database.sh
 CLEAN = $(shell) $(SCRIPT_DIR)/clean.sh
-CLEAN_MIGRATIONS = $(shell) $(SCRIPT_DIR)/clean_migrations.sh
+GVM = $(shell) $(SCRIPT_DIR)/gvm.sh
+GRIP = $(shell) $(SCRIPT_DIR)/grip.sh
+PYENV = $(shell) $(SCRIPT_DIR)/pyenv.sh
 SETUP = $(shell) $(SCRIPT_DIR)/setup.sh
+INSTALL = $(shell) $(SCRIPT_DIR)/install.sh
+LINTCODE = $(shell) $(SCRIPT_DIR)/lintcode.sh
 TEST = $(shell) $(SCRIPT_DIR)/test.sh
-ROLES_ANSIBLE = $(shell) $(SCRIPT_DIR)/roles_ansible.sh
-PLUGINS_VAGRANT = $(shell) $(SCRIPT_DIR)/plugins_vagrant.sh
 RUNSERVER = $(shell) $(SCRIPT_DIR)/runserver.sh
 SYNC = $(shell) $(SCRIPT_DIR)/sync.sh
-
-install:
-  $(SETUP)
-
-
-
-plugins_vagrant:
-	$(PLUGINS_VAGRANT)
-
-
-roles:
-	$(ROLES_ANSIBLE)
-
-
-ansible_provision:
-	$(ANSIBLE_PROVISION)
-
-
-ansible_deploy:
-	$(ANSIBLE_DEPLOY)
+WATCH = $(shell) $(SCRIPT_DIR)/watch.sh
 
 
 clean:
 	$(CLEAN)
-
-
-setup:
-	$(SETUP)
-
-
-deploy:
-	$(ANSIBLE_PROVISION)
-	$(ANSIBLE_DEPLOY)
 
 
 distclean: clean
@@ -64,14 +33,36 @@ distclean: clean
 	rm -rf $(ROOT_DIR)/demo/*.egg-info
 
 
+environment:
+	$(PYENV)
+	$(GVM)
+	$(INSTALL)
+
+
+grip:
+	$(GRIP)
+
+
+install:
+	$(INSTALL)
+
+
 maintainer-clean: distclean
 	rm -rf $(BIN_DIR)
 	rm -rf $(ROOT_DIR)/lib/
 
 
-runserver:
-	$(RUNSERVER)
+lintcode:
+	$(LINTCODE)
 
 
 sync:
 	$(SYNC)
+
+
+watch:
+	$(WATCH)
+
+
+test:
+	$(TEST)

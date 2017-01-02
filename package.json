@@ -1,7 +1,7 @@
 {
-    "name": "tweet-for-god",
-    "description": "tweet for god",
-    "version": "0.0.1",
+    "name": "tweet-for-nodejs",
+    "description": "tweet for nodejs",
+    "version": "0.0.2",
     "private": true,
     "author": "Luis Alberto Mayta",
     "engines": {
@@ -9,7 +9,7 @@
         "npm": "1.2.x"
     },
     "scripts": {
-        "start": "node server.js"
+        "start": "node src/server.js"
     },
     "dependencies": {
         "jade": "0.35.0",
