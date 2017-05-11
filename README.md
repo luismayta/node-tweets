@@ -1,9 +1,6 @@
-
-<span class="badges" align="center">
 [![Code Climate](https://codeclimate.com/github/luismayta/nodejs-example-tweets/badges/gpa.svg)](https://codeclimate.com/github/luismayta/nodejs-example-tweets)
 [![Issue Count](https://codeclimate.com/github/luismayta/nodejs-example-tweets/badges/issue_count.svg)](https://codeclimate.com/github/luismayta/nodejs-example-tweets)
 [![Test Coverage](https://codeclimate.com/github/luismayta/nodejs-example-tweets/badges/coverage.svg)](https://codeclimate.com/github/luismayta/nodejs-example-tweets/coverage)
-</span>
 
 # Tweets For Node
 
