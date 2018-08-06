@@ -1,25 +1,37 @@
-version: '2'
+# Docker Compose
+# https://docs.docker.com/compose/
+# Usage: docker-compose up
+---
+
+version: '3'
 services:
-  web:
-    restart: always
-    build: .
-    image: mhart/alpine-node
-    volumes:
-      - ./:/app
+
+  app:
     ports:
-      - "3000:3000"
-    links:
-      - mongo
+      - "5000:5000"
+    build:
+      context: .
+      dockerfile: provision/docker/app/Dockerfile
+    depends_on:
+      - mongodb
+    environment: &environment
+      - APPLICATION_HOST=0.0.0.0
+      - APPLICATION_PORT=5000
+      - MONGODB_URL=http://mongodb:27017
+    volumes:
+      - .:/usr/src
+    env_file:
+      - .env
+
+
+  mongodb:
+    image: mongo
+    restart: always
     environment:
-      PORT: 3000
-  mongo:
-    restart: always
-    image: mvertes/alpine-mongo
-    ports:
-      - "27017:27017"
-    volumes_from:
-      - mongodata
-  mongodata:
-    image: tianon/true
-    volumes:
-      - /data/db
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    env_file:
+      - .env
+
+volumes:
+  mongodb:
