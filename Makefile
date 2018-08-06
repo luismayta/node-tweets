@@ -1,68 +1,74 @@
-# Makefile for nodejs-example-tweets.
+#
+# See ./CONTRIBUTING.rst
+#
+
+OS := $(shell uname)
+.PHONY: help build up requirements clean lint test help
+.DEFAULT_GOAL := help
+
+PROJECT := node-tweets
+PROJECT_PORT := 8000
+
+PYTHON_VERSION=3.6.4
+PYENV_NAME="${PROJECT}"
 
 # Configuration.
-SHELL = /bin/bash
-ROOT_DIR = $(shell pwd)
-BIN_DIR = $(ROOT_DIR)/bin
-DATA_DIR = $(ROOT_DIR)/var
-SCRIPT_DIR = $(ROOT_DIR)/script
+SHELL := /bin/bash
+ROOT_DIR=$(shell pwd)
+MESSAGE:=༼ つ ◕_◕ ༽つ
+MESSAGE_HAPPY:="${MESSAGE} Happy Coding"
+SOURCE_DIR=$(ROOT_DIR)/
+REQUIREMENTS_DIR=$(ROOT_DIR)/requirements
+PROVISION_DIR:=$(ROOT_DIR)/provision
+FILE_README:=$(ROOT_DIR)/README.rst
+PATH_DOCKER_COMPOSE:=provision/docker-compose
 
-WGET = wget
+pip_install := pip install -r
+docker-compose:=docker-compose -f docker-compose.yml
 
-# Bin scripts
-CLEAN = $(shell) $(SCRIPT_DIR)/clean.sh
-GVM = $(shell) $(SCRIPT_DIR)/gvm.sh
-GRIP = $(shell) $(SCRIPT_DIR)/grip.sh
-PYENV = $(shell) $(SCRIPT_DIR)/pyenv.sh
-SETUP = $(shell) $(SCRIPT_DIR)/setup.sh
-INSTALL = $(shell) $(SCRIPT_DIR)/install.sh
-LINTCODE = $(shell) $(SCRIPT_DIR)/lintcode.sh
-TEST = $(shell) $(SCRIPT_DIR)/test.sh
-RUNSERVER = $(shell) $(SCRIPT_DIR)/runserver.sh
-SYNC = $(shell) $(SCRIPT_DIR)/sync.sh
-WATCH = $(shell) $(SCRIPT_DIR)/watch.sh
+include extras/make/*.mk
 
+help:
+	@echo '${MESSAGE} Makefile for ${PROJECT}'
+	@echo ''
+	@echo 'Usage:'
+	@echo '    stage                     create stage with pyenv'
+	@echo '    clean                     remove files of build'
+	@echo '    setup                     install requirements'
+	@echo ''
+	@make alias.help
+	@make docker.help
+	@make docs.help
+	@make test.help
 
 clean:
-	$(CLEAN)
+	@echo "$(TAG)"Cleaning up"$(END)"
+ifneq (Darwin,$(OS))
+	@sudo rm -rf .tox *.egg *.egg-info dist build .coverage
+	@sudo rm -rf docs/build
+	@sudo find . -name '__pycache__' -delete -print -o -name '*.pyc' -delete -print -o -name '*.pyo' -delete -print -o -name '*~' -delete -print -o -name '*.tmp' -delete -print
+else
+	@rm -rf .tox *.egg *.egg-info dist build .coverage
+	@rm -rf docs/build
+	@find . -name '__pycache__' -delete -print -o -name '*.pyc' -delete -print -o -name '*.pyo' -delete -print -o -name '*~' -delete -print -o -name '*.tmp' -delete -print
+endif
+	@echo
 
+setup: clean
+	$(pip_install) "${REQUIREMENTS_DIR}/setup.txt"
+	@if [ -e "${REQUIREMENTS_DIR}/private.txt" ]; then \
+			$(pip_install) "${REQUIREMENTS_DIR}/private.txt"; \
+	fi
+	pre-commit install
+	cp -rf .hooks/prepare-commit-msg .git/hooks/
+	@if [ ! -e ".env" ]; then \
+		cp -rf .env-sample .env;\
+	fi
 
-distclean: clean
-	rm -rf $(ROOT_DIR)/lib
-	rm -rf $(ROOT_DIR)/*.egg-info
-	rm -rf $(ROOT_DIR)/demo/*.egg-info
-
-
-environment:
-	$(PYENV)
-	$(GVM)
-	$(INSTALL)
-
-
-grip:
-	$(GRIP)
-
-
-install:
-	$(INSTALL)
-
-
-maintainer-clean: distclean
-	rm -rf $(BIN_DIR)
-	rm -rf $(ROOT_DIR)/lib/
-
-
-lintcode:
-	$(LINTCODE)
-
-
-sync:
-	$(SYNC)
-
-
-watch:
-	$(WATCH)
-
-
-test:
-	$(TEST)
+environment: clean
+	@if [ -e "$(HOME)/.pyenv" ]; then \
+		eval "$(pyenv init -)"; \
+		eval "$(pyenv virtualenv-init -)"; \
+	fi
+	pyenv virtualenv "${PYTHON_VERSION}" "${PYENV_NAME}" >> /dev/null 2>&1 || echo $(MESSAGE_HAPPY)
+	pyenv activate "${PYENV_NAME}" >> /dev/null 2>&1 || echo $(MESSAGE_HAPPY)
