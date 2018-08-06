@@ -14,8 +14,8 @@
     "dependencies": {
         "jade": "0.35.0",
         "lodash": "~2.4.1",
-        "express": "3.3.5",
-        "jasmine-node":"1.11.0",
+        "express": "4.16.0",
+        "jasmine-node":"1.14.6",
         "twit": "^1.1.18",
         "socket.io": "0.9.16",
         "connect-mongo": "~0.4.1",
