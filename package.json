@@ -23,7 +23,7 @@
         "mongoose": "~3.8.8",
         "redis": "0.12.1",
         "bower": "~1.7.5",
-        "glob": "~4.0.5",
+        "glob": "~5.0.15",
         "async": "~0.9.0",
         "cluster": "*",
         "underscore": "*",
@@ -31,6 +31,6 @@
         "through": "*",
         "moment": "~2.8.3",
         "moment-timezone": "*",
-        "grunt-cli": "~0.1.13"
+        "grunt-cli": "~1.0.0"
     }
 }
