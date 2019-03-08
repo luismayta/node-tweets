@@ -13,7 +13,7 @@
     },
     "dependencies": {
         "jade": "0.35.0",
-        "lodash": "~2.4.1",
+        "lodash": "~4.17.11",
         "express": "4.16.0",
         "jasmine-node":"1.14.6",
         "twit": "^1.1.18",
@@ -22,6 +22,7 @@
         "nconf": "^0.6.9",
         "mongoose": "~3.8.8",
         "redis": "0.12.1",
+        "bower": "~1.8.8",
         "bower": "~1.7.5",
         "glob": "~5.0.15",
         "async": "~0.9.0",
