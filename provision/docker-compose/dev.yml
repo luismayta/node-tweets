@@ -1,29 +1,41 @@
 # Docker Compose
 # https://docs.docker.com/compose/
 
-version: '3'
+version: "3.6"
 services:
-
   # Python
   app:
     environment: &environment
-      - STAGE=local
-    image: node-tweets-app-dev:0.0.2
+      - STAGE=dev
+    image: node-tweets-app-dev
     build:
       args:
         stage: dev
-        version: 0.0.2
 
+  nodejs:
+    ports:
+      - "3000:3000"
+    restart: always
+    image: node-tweets-node-dev
+    build:
+      context: .
+      dockerfile: provision/docker/nodejs/Dockerfile
+      args:
+        stage: dev
+    volumes:
+      - .:/usr/src
+      - yarn-cache:/root/.yarn-cache
+    env_file:
+      - .env
 
   check:
-    image: node-tweets-check-dev:0.0.2
+    image: node-tweets-check-dev
     environment: *environment
     build:
       context: .
       dockerfile: provision/docker/check/Dockerfile
       args:
         stage: dev
-        version: 0.0.2
     volumes:
       - .:/usr/src
     env_file:
