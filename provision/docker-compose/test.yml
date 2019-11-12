@@ -3,16 +3,14 @@
 #
 # Usage: test up
 
-version: '3'
+version: "3.6"
 services:
-
   app:
-    image: node-tweets-app-test:0.0.2
+    image: node-tweets-app-test
     environment: &environment
-      - STAGE=test
+      - STAGE=testing
     build:
       args:
         stage: test
-        version: 0.0.2
     volumes:
       - .:/usr/src
