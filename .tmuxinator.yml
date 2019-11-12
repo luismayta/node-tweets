@@ -1,6 +1,6 @@
 # ~/.tmuxinator/node-tweets.yml
 name: node-tweets
-root: <%= ENV["PROJECTS"] %>/nodejs/node-tweets
+root: ./
 # Optional tmux socket
 # socket_name: foo
 
@@ -25,7 +25,7 @@ on_project_exit: make docker.down
 on_project_stop: make docker.down
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: pyenv activate node-tweets
+pre_window: pipenv shell --fancy
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -48,11 +48,6 @@ windows:
       panes:
         - ipython:
   - databases:
-      layout: main-vertical
-      panes:
-        - postgresql:
-        - ls:
-  - aws:
       layout: main-vertical
       panes:
         - webserver:
