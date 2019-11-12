@@ -12,11 +12,12 @@ insert_final_newline = false
 indent_style = space
 # Set default charset
 charset = utf-8
+trim_trailing_whitespace = true
 
 [*.{el}]
 insert_final_newline = false
 
-[*.{el,md,yml,yaml,js,json}]
+[*.{el,md,yml,yaml,js,json,toml}]
 indent_style = space
 indent_size = 2
 
@@ -27,12 +28,17 @@ indent_size = 4
 
 # Minified JavaScript files shouldn't be changed
 [**.min.js]
-indent_style         = ignore
+indent_style = ignore
 insert_final_newline = ignore
 
 # Tab indentation (no size specified)
 [Makefile]
 indent_style = tab
+
+# Indentation override for all JS under lib directory
+[*.{el,js,json,md,yml,yaml}]
+indent_style = space
+indent_size = 2
 
 [*.{make,mk}]
 indent_style = tab
