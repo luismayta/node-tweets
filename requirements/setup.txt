@@ -1,5 +1,0 @@
-bumplus
-bumpversion
-docker-compose
-pre-commit
-restview
